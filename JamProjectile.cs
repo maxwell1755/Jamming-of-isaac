@@ -12,7 +12,7 @@ public class JamProjectile : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
        if(playScript.GetComponent<PlayerScript>().getWhatDirection()){
             rb.velocity = transform.right * speed;
             Debug.Log("facingRight");
