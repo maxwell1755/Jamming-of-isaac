@@ -52,6 +52,7 @@ public class JamProjectile : MonoBehaviour
             collision.gameObject.GetComponent<box>().boxRB.velocity =  rb.velocity;
             Destroy(gameObject);
         }
+        
     }
 
     

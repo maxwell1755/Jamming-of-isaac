@@ -22,6 +22,10 @@ public class PlayerScript : MonoBehaviour
 
     public bool canShoot;
 
+    public GameObject leSprite;
+    public GameObject leftSprite;
+    public GameObject rightSprite;
+
 
     
 
@@ -51,10 +55,11 @@ public class PlayerScript : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.LeftArrow)){
             facingRight = false;
+            leSprite.GetComponent<SpriteRenderer>().sprite = leftSprite.GetComponent<SpriteRenderer>().sprite;
             
         }else if(Input.GetKeyDown(KeyCode.RightArrow)){
             facingRight = true;
-            
+            leSprite.GetComponent<SpriteRenderer>().sprite = rightSprite.GetComponent<SpriteRenderer>().sprite;
         }
 
         if(Input.GetKeyDown(KeyCode.Space) && canShoot){
