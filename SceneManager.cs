@@ -14,7 +14,7 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.GetComponent<PlayerScript>().popupInited && Input.GetKeyDown(KeyCode.F))
+        if(player.GetComponent<PlayerS1>().onPainting && Input.GetKeyDown(KeyCode.F))
             Debug.Log("load Next Scene");
         
     }
