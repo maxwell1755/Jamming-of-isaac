@@ -32,12 +32,8 @@ public class JamProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //whenever a bullet hits something, kill itself and the thing it hit
-        //only if the tag matches
         if(collision.gameObject.CompareTag(_killTag))
         {
-            //the game object has the tag!
-
             enemy enemy  = collision.gameObject.GetComponent<enemy>();
             if((enemy.getHP())-1 == 0){
                 //destroy the object we hit
@@ -48,6 +44,11 @@ public class JamProjectile : MonoBehaviour
             }
 
             //destroy this bullet
+            Destroy(gameObject);
+        }
+
+        if(collision.gameObject.CompareTag("box"))
+        {
             Destroy(gameObject);
         }
     }

@@ -18,20 +18,17 @@ public class PlayerScript : MonoBehaviour
     public float checkRadius;
     public LayerMask ground;
 
-    private string painting;
-
     public GameObject proj;
-    public GameObject PromptBox;
 
-    public bool popupInited;
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
         facingRight = true;
         rb = GetComponent<Rigidbody2D>();
-        painting = "Painting";
-        popupInited = false;
+        
     }
 
     // Update is called once per frame
@@ -39,10 +36,8 @@ public class PlayerScript : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, ground);
 
-
-        
-
         moveInput = Input.GetAxis("Horizontal");
+        
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
     }
@@ -70,16 +65,7 @@ public class PlayerScript : MonoBehaviour
         return facingRight;
     }
 
-     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //whenever a bullet hits something, kill itself and the thing it hit
-        //only if the tag matches
-        if(collision.gameObject.CompareTag(painting) && !popupInited)
-        {
-           Instantiate(PromptBox, transform.position + (transform.up), Quaternion.identity);
-           popupInited = true;
-        }
-    }
+     
 
 
 }
