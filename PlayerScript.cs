@@ -20,6 +20,8 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject proj;
 
+    public bool canShoot;
+
 
     
 
@@ -55,7 +57,7 @@ public class PlayerScript : MonoBehaviour
             
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Space) && canShoot){
             GameObject ball = Instantiate(proj, transform.position + (transform.up), Quaternion.identity);
             ball.GetComponent<JamProjectile>().playScript = this;
         }
